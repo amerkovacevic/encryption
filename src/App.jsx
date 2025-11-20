@@ -345,10 +345,10 @@ function App() {
   // Cipher Strength Indicator
   const getStrengthColor = (strength) => {
     switch (strength) {
-      case 'strong': return 'text-success-400';
-      case 'medium': return 'text-warning-400';
-      case 'weak': return 'text-error-400';
-      default: return 'text-quaternary-400';
+      case 'strong': return 'text-success-700';
+      case 'medium': return 'text-warning-700';
+      case 'weak': return 'text-error-700';
+      default: return 'text-primary-600';
     }
   };
 
@@ -568,13 +568,13 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-primary-800 text-accent-50 flex flex-col relative">
+    <div className="min-h-screen bg-accent-50 text-primary-900 flex flex-col relative">
       {/* Header */}
-      <header className="bg-secondary-800 border-b border-tertiary-700 px-4 sm:px-6 py-3 sm:py-4">
+      <header className="bg-white border-b border-primary-200 px-4 sm:px-6 py-3 sm:py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
           <div className="min-w-0">
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-accent-50 truncate">Cipher Suite</h1>
-            <p className="text-quaternary-400 text-xs sm:text-sm mt-1 hidden sm:block">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-primary-900 truncate">Cipher Suite</h1>
+            <p className="text-primary-600 text-xs sm:text-sm mt-1 hidden sm:block">
               Advanced encryption and decryption tool
             </p>
           </div>
@@ -613,12 +613,12 @@ function App() {
           <div className="lg:col-span-1 space-y-4 sm:space-y-6">
             <div className="card">
               <div className="flex items-center justify-between mb-3 sm:mb-4">
-                <h2 className="text-lg sm:text-xl font-display font-semibold text-accent-50">
+                <h2 className="text-lg sm:text-xl font-display font-semibold text-primary-900">
                   Encryption Method
                 </h2>
                 <button
                   onClick={() => setIsMethodsCollapsed(!isMethodsCollapsed)}
-                  className="text-quaternary-400 hover:text-accent-50 transition-colors p-1"
+                  className="text-primary-600 hover:text-primary-900 transition-colors p-1"
                   title={isMethodsCollapsed ? "Expand" : "Collapse"}
                 >
                   {isMethodsCollapsed ? (
@@ -639,10 +639,10 @@ function App() {
                     <button
                       key={method.id}
                       onClick={() => setSelectedMethod(method.id)}
-                      className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-colors ${
+                      className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-colors border ${
                         selectedMethod === method.id
-                          ? 'bg-tertiary-600 text-accent-50'
-                          : 'bg-secondary-800/50 text-quaternary-300 hover:bg-secondary-700/70'
+                          ? 'bg-tertiary-100 text-tertiary-700 border-tertiary-300'
+                          : 'bg-white text-primary-600 hover:bg-accent-100 border-primary-200'
                       }`}
                     >
                       {method.name}
@@ -652,32 +652,32 @@ function App() {
               )}
               
               {isMethodsCollapsed && (
-                <div className="text-sm text-quaternary-400">
-                  Current: <span className="text-accent-50 font-semibold">{currentMethod?.name}</span>
+                <div className="text-sm text-primary-600">
+                  Current: <span className="text-primary-900 font-semibold">{currentMethod?.name}</span>
                 </div>
               )}
             </div>
 
             {/* Mode Selection */}
             <div className="card">
-              <h2 className="text-lg sm:text-xl font-display font-semibold text-accent-50 mb-3 sm:mb-4">Mode</h2>
+              <h2 className="text-lg sm:text-xl font-display font-semibold text-primary-900 mb-3 sm:mb-4">Mode</h2>
               <div className="flex gap-2">
                 <button
                   onClick={() => setMode('encrypt')}
-                  className={`flex-1 px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base transition-colors ${
+                  className={`flex-1 px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base transition-colors border ${
                     mode === 'encrypt'
-                      ? 'bg-tertiary-600 text-accent-50'
-                      : 'bg-secondary-800/50 text-quaternary-300 hover:bg-secondary-700/70'
+                      ? 'bg-tertiary-100 text-tertiary-700 border-tertiary-300'
+                      : 'bg-white text-primary-600 hover:bg-accent-100 border-primary-200'
                   }`}
                 >
                   Encrypt
                 </button>
                 <button
                   onClick={() => setMode('decrypt')}
-                  className={`flex-1 px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base transition-colors ${
+                  className={`flex-1 px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base transition-colors border ${
                     mode === 'decrypt'
-                      ? 'bg-tertiary-600 text-accent-50'
-                      : 'bg-secondary-800/50 text-quaternary-300 hover:bg-secondary-700/70'
+                      ? 'bg-tertiary-100 text-tertiary-700 border-tertiary-300'
+                      : 'bg-white text-primary-600 hover:bg-accent-100 border-primary-200'
                   }`}
                 >
                   Decrypt
@@ -687,13 +687,13 @@ function App() {
 
             {/* Method Settings */}
             <div className="card">
-              <h2 className="text-lg sm:text-xl font-display font-semibold text-accent-50 mb-3 sm:mb-4">
+              <h2 className="text-lg sm:text-xl font-display font-semibold text-primary-900 mb-3 sm:mb-4">
                 Settings
               </h2>
 
               {selectedMethod === 'caesar' && (
                 <div className="space-y-2">
-                  <label className="block text-sm text-quaternary-300">
+                  <label className="block text-sm text-primary-700">
                     Shift Value: {caesarShift}
                   </label>
                   <input
@@ -715,7 +715,7 @@ function App() {
 
               {selectedMethod === 'vigenere' && (
                 <div className="space-y-2">
-                  <label className="block text-sm text-quaternary-300">Vigenère Key</label>
+                  <label className="block text-sm text-primary-700">Vigenère Key</label>
                   <input
                     type="text"
                     value={vigenereKey}
@@ -723,7 +723,7 @@ function App() {
                     placeholder="Enter key (e.g., SECRET)"
                     className="input-field"
                   />
-                  <p className="text-xs text-quaternary-500">
+                  <p className="text-xs text-primary-500">
                     A repeating keyword for polyalphabetic substitution
                   </p>
                 </div>
@@ -731,7 +731,7 @@ function App() {
 
               {selectedMethod === 'aes' && (
                 <div className="space-y-2">
-                  <label className="block text-sm text-quaternary-300">Encryption Key</label>
+                  <label className="block text-sm text-primary-700">Encryption Key</label>
                   <input
                     type="password"
                     value={aesKey}
@@ -739,9 +739,9 @@ function App() {
                     placeholder="Enter a secure key"
                     className="input-field"
                   />
-                  <div className="text-xs text-quaternary-500">
+                  <div className="text-xs text-primary-500">
                     <div className="flex items-center gap-2 mt-2">
-                      <div className="flex-1 h-1 bg-secondary-700 rounded">
+                      <div className="flex-1 h-1 bg-primary-200 rounded">
                         <div 
                           className={`h-1 rounded transition-all ${
                             aesKey.length < 8 ? 'bg-error-500 w-1/4' :
@@ -761,7 +761,7 @@ function App() {
 
               {selectedMethod === 'keyword' && (
                 <div className="space-y-2">
-                  <label className="block text-sm text-quaternary-300">Keyword</label>
+                  <label className="block text-sm text-primary-700">Keyword</label>
                   <input
                     type="text"
                     value={keyword}
@@ -769,7 +769,7 @@ function App() {
                     placeholder="Enter keyword (e.g., ZEBRA)"
                     className="input-field"
                   />
-                  <p className="text-xs text-quaternary-500">
+                  <p className="text-xs text-primary-500">
                     Letters only - duplicates are automatically removed
                   </p>
                 </div>
@@ -777,7 +777,7 @@ function App() {
 
               {selectedMethod === 'morse' && (
                 <div className="space-y-2">
-                  <p className="text-sm text-quaternary-400">
+                  <p className="text-sm text-primary-600">
                     Convert text to/from Morse code
                   </p>
                   {outputText && mode === 'encrypt' && (
@@ -792,7 +792,7 @@ function App() {
               )}
 
               {!['caesar', 'vigenere', 'aes', 'keyword', 'morse'].includes(selectedMethod) && (
-                <p className="text-sm text-quaternary-400">
+                <p className="text-sm text-primary-600">
                   No additional settings required for this method.
                 </p>
               )}
@@ -805,9 +805,9 @@ function App() {
             {/* Input Area */}
             <div className="card">
               <div className="flex items-center justify-between mb-3 sm:mb-4 gap-2">
-                <h2 className="text-lg sm:text-xl font-display font-semibold text-accent-50">Input Text</h2>
+                <h2 className="text-lg sm:text-xl font-display font-semibold text-primary-900">Input Text</h2>
                 <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-                  <span className="text-xs sm:text-sm text-quaternary-400">
+                  <span className="text-xs sm:text-sm text-primary-600">
                     {inputText.length}
                   </span>
                   <button
@@ -894,18 +894,18 @@ function App() {
 
             {/* Frequency Analysis */}
             {showFrequencyAnalysis && outputText && (
-              <div className="card bg-secondary-900/50">
-                <h3 className="text-lg font-semibold text-accent-50 mb-3">Letter Frequency Analysis</h3>
+              <div className="card bg-accent-100">
+                <h3 className="text-lg font-semibold text-primary-900 mb-3">Letter Frequency Analysis</h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
                   {calculateFrequency(outputText).slice(0, 10).map((item) => (
-                    <div key={item.char} className="bg-tertiary-900/50 rounded p-2 text-center">
-                      <div className="text-xl font-bold text-accent-50">{item.char}</div>
-                      <div className="text-xs text-quaternary-400">{item.count}</div>
-                      <div className="text-xs text-tertiary-400">{item.percent}%</div>
+                    <div key={item.char} className="bg-tertiary-100 rounded p-2 text-center">
+                      <div className="text-xl font-bold text-primary-900">{item.char}</div>
+                      <div className="text-xs text-primary-600">{item.count}</div>
+                      <div className="text-xs text-primary-700">{item.percent}%</div>
                     </div>
                   ))}
                 </div>
-                <p className="text-xs text-quaternary-500 mt-3">
+                <p className="text-xs text-primary-500 mt-3">
                   Top 10 most frequent letters. In English, E, T, A, O, I, N are most common.
                 </p>
               </div>
@@ -913,18 +913,18 @@ function App() {
 
             {/* Multi-Layer Encryption */}
             {showMultiLayer && (
-              <div className="card bg-secondary-900/50">
-                <h3 className="text-lg font-semibold text-accent-50 mb-3">Multi-Layer Encryption</h3>
-                <p className="text-sm text-quaternary-400 mb-3">
+              <div className="card bg-accent-100">
+                <h3 className="text-lg font-semibold text-primary-900 mb-3">Multi-Layer Encryption</h3>
+                <p className="text-sm text-primary-600 mb-3">
                   Apply multiple encryption methods in sequence for stronger security.
                 </p>
                 <div className="space-y-2 mb-3">
                   {encryptionLayers.map((layer, index) => (
-                    <div key={index} className="flex items-center gap-2 bg-tertiary-900/50 p-2 rounded">
-                      <span className="text-sm">Layer {index + 1}: {layer.method}</span>
+                    <div key={index} className="flex items-center gap-2 bg-tertiary-100 p-2 rounded">
+                      <span className="text-sm text-primary-900">Layer {index + 1}: {layer.method}</span>
                       <button
                         onClick={() => setEncryptionLayers(encryptionLayers.filter((_, i) => i !== index))}
-                        className="ml-auto text-error-400 text-xs"
+                        className="ml-auto text-error-700 text-xs"
                       >
                         ✕
                       </button>
@@ -960,8 +960,8 @@ function App() {
             {/* Output Area */}
             <div className="card">
               <div className="flex items-center justify-between mb-3 sm:mb-4">
-                <h2 className="text-lg sm:text-xl font-display font-semibold text-accent-50">Output Text</h2>
-                <span className="text-xs sm:text-sm text-quaternary-400">
+                <h2 className="text-lg sm:text-xl font-display font-semibold text-primary-900">Output Text</h2>
+                <span className="text-xs sm:text-sm text-primary-600">
                   {outputText.length}
                 </span>
               </div>
@@ -969,17 +969,17 @@ function App() {
                 value={outputText}
                 readOnly
                 placeholder="Result will appear here..."
-                className="textarea-field bg-secondary-900/70 cursor-default text-sm sm:text-base"
+                className="textarea-field bg-accent-100 cursor-default text-sm sm:text-base"
                 rows="6"
               />
             </div>
 
             {/* Method Info */}
-            <div className="card bg-tertiary-900/30 border-tertiary-700/50">
-              <h3 className="text-base sm:text-lg font-display font-semibold text-accent-50 mb-2 sm:mb-3">
+            <div className="card bg-tertiary-100 border-tertiary-300">
+              <h3 className="text-base sm:text-lg font-display font-semibold text-primary-900 mb-2 sm:mb-3">
                 About {currentMethod?.name}
               </h3>
-              <p className="text-xs sm:text-sm text-quaternary-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-primary-700 leading-relaxed">
                 {selectedMethod === 'caesar' && 'The Caesar cipher shifts each letter by a fixed number of positions in the alphabet. Named after Julius Caesar, who used it for military communications.'}
                 {selectedMethod === 'vigenere' && 'The Vigenère cipher uses a keyword to create multiple Caesar ciphers. Each letter of the keyword determines the shift for the corresponding letter in the message. Much more secure than simple substitution ciphers.'}
                 {selectedMethod === 'rot13' && 'ROT13 is a special case of the Caesar cipher that shifts letters by 13 positions. Since the alphabet has 26 letters, applying ROT13 twice returns the original text.'}
@@ -1000,8 +1000,8 @@ function App() {
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
           <div className="card max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-display font-bold text-accent-50">Settings</h2>
-              <button onClick={() => setShowSettings(false)} className="text-quaternary-400 hover:text-accent-50 text-2xl">
+              <h2 className="text-2xl font-display font-bold text-primary-900">Settings</h2>
+              <button onClick={() => setShowSettings(false)} className="text-primary-600 hover:text-primary-900 text-2xl">
                 ✕
               </button>
             </div>
@@ -1009,7 +1009,7 @@ function App() {
             <div className="space-y-6">
               {/* Default Method */}
               <div>
-                <label className="block text-sm font-semibold text-accent-50 mb-2">
+                <label className="block text-sm font-semibold text-primary-900 mb-2">
                   Default Encryption Method
                 </label>
                 <select
@@ -1026,8 +1026,8 @@ function App() {
               {/* Auto-copy */}
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-semibold text-accent-50">Auto-copy Output</div>
-                  <div className="text-sm text-quaternary-400">Automatically copy result to clipboard</div>
+                  <div className="font-semibold text-primary-900">Auto-copy Output</div>
+                  <div className="text-sm text-primary-600">Automatically copy result to clipboard</div>
                 </div>
                 <input
                   type="checkbox"
@@ -1040,8 +1040,8 @@ function App() {
               {/* Auto-process */}
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-semibold text-accent-50">Auto-process</div>
-                  <div className="text-sm text-quaternary-400">Encrypt/decrypt as you type</div>
+                  <div className="font-semibold text-primary-900">Auto-process</div>
+                  <div className="text-sm text-primary-600">Encrypt/decrypt as you type</div>
                 </div>
                 <input
                   type="checkbox"
@@ -1053,7 +1053,7 @@ function App() {
 
               {/* Text Case */}
               <div>
-                <label className="block text-sm font-semibold text-accent-50 mb-2">
+                <label className="block text-sm font-semibold text-primary-900 mb-2">
                   Output Text Case
                 </label>
                 <select
@@ -1070,8 +1070,8 @@ function App() {
               {/* Remove Spaces */}
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-semibold text-accent-50">Remove Spaces from Output</div>
-                  <div className="text-sm text-quaternary-400">Strip all whitespace characters</div>
+                  <div className="font-semibold text-primary-900">Remove Spaces from Output</div>
+                  <div className="text-sm text-primary-600">Strip all whitespace characters</div>
                 </div>
                 <input
                   type="checkbox"
@@ -1083,7 +1083,7 @@ function App() {
 
               {/* Group By */}
               <div>
-                <label className="block text-sm font-semibold text-accent-50 mb-2">
+                <label className="block text-sm font-semibold text-primary-900 mb-2">
                   Group Characters (0 = no grouping)
                 </label>
                 <input
@@ -1095,7 +1095,7 @@ function App() {
                   className="input-field"
                   placeholder="e.g., 5 for groups of 5"
                 />
-                <p className="text-xs text-quaternary-500 mt-1">
+                <p className="text-xs text-primary-500 mt-1">
                   Classic cipher format: 5 groups text like this
                 </p>
               </div>
@@ -1113,36 +1113,36 @@ function App() {
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
           <div className="card max-w-2xl w-full">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-display font-bold text-accent-50">⌨️ Keyboard Shortcuts</h2>
-              <button onClick={() => setShowKeyboardHelp(false)} className="text-quaternary-400 hover:text-accent-50 text-2xl">
+              <h2 className="text-2xl font-display font-bold text-primary-900">⌨️ Keyboard Shortcuts</h2>
+              <button onClick={() => setShowKeyboardHelp(false)} className="text-primary-600 hover:text-primary-900 text-2xl">
                 ✕
               </button>
             </div>
 
             <div className="space-y-3">
-              <div className="flex items-center justify-between py-2 border-b border-tertiary-700">
-                <span className="text-quaternary-300">Encrypt/Decrypt</span>
-                <kbd className="px-3 py-1 bg-secondary-700 rounded text-sm">Ctrl + Enter</kbd>
+              <div className="flex items-center justify-between py-2 border-b border-primary-200">
+                <span className="text-primary-700">Encrypt/Decrypt</span>
+                <kbd className="px-3 py-1 bg-accent-100 rounded text-sm">Ctrl + Enter</kbd>
               </div>
-              <div className="flex items-center justify-between py-2 border-b border-tertiary-700">
-                <span className="text-quaternary-300">Copy Output</span>
-                <kbd className="px-3 py-1 bg-secondary-700 rounded text-sm">Ctrl + K</kbd>
+              <div className="flex items-center justify-between py-2 border-b border-primary-200">
+                <span className="text-primary-700">Copy Output</span>
+                <kbd className="px-3 py-1 bg-accent-100 rounded text-sm">Ctrl + K</kbd>
               </div>
-              <div className="flex items-center justify-between py-2 border-b border-tertiary-700">
-                <span className="text-quaternary-300">Swap Input/Output</span>
-                <kbd className="px-3 py-1 bg-secondary-700 rounded text-sm">Ctrl + S</kbd>
+              <div className="flex items-center justify-between py-2 border-b border-primary-200">
+                <span className="text-primary-700">Swap Input/Output</span>
+                <kbd className="px-3 py-1 bg-accent-100 rounded text-sm">Ctrl + S</kbd>
               </div>
-              <div className="flex items-center justify-between py-2 border-b border-tertiary-700">
-                <span className="text-quaternary-300">Clear All</span>
-                <kbd className="px-3 py-1 bg-secondary-700 rounded text-sm">Ctrl + L</kbd>
+              <div className="flex items-center justify-between py-2 border-b border-primary-200">
+                <span className="text-primary-700">Clear All</span>
+                <kbd className="px-3 py-1 bg-accent-100 rounded text-sm">Ctrl + L</kbd>
               </div>
-              <div className="flex items-center justify-between py-2 border-b border-tertiary-700">
-                <span className="text-quaternary-300">Show This Help</span>
-                <kbd className="px-3 py-1 bg-secondary-700 rounded text-sm">?</kbd>
+              <div className="flex items-center justify-between py-2 border-b border-primary-200">
+                <span className="text-primary-700">Show This Help</span>
+                <kbd className="px-3 py-1 bg-accent-100 rounded text-sm">?</kbd>
               </div>
               <div className="flex items-center justify-between py-2">
-                <span className="text-quaternary-300">Close Modals</span>
-                <kbd className="px-3 py-1 bg-secondary-700 rounded text-sm">Esc</kbd>
+                <span className="text-primary-700">Close Modals</span>
+                <kbd className="px-3 py-1 bg-accent-100 rounded text-sm">Esc</kbd>
               </div>
             </div>
 
@@ -1158,20 +1158,20 @@ function App() {
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
           <div className="card max-w-2xl w-full">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-display font-bold text-accent-50">
+              <h2 className="text-2xl font-display font-bold text-primary-900">
                 {tutorialSteps[tutorialStep].title}
               </h2>
-              <button onClick={() => { setShowTutorial(false); setTutorialStep(0); }} className="text-quaternary-400 hover:text-accent-50 text-2xl">
+              <button onClick={() => { setShowTutorial(false); setTutorialStep(0); }} className="text-primary-600 hover:text-primary-900 text-2xl">
                 ✕
               </button>
             </div>
 
-            <p className="text-quaternary-300 text-lg mb-6 leading-relaxed">
+            <p className="text-primary-700 text-lg mb-6 leading-relaxed">
               {tutorialSteps[tutorialStep].content}
             </p>
 
             <div className="flex items-center justify-between">
-              <div className="text-sm text-quaternary-500">
+              <div className="text-sm text-primary-500">
                 Step {tutorialStep + 1} of {tutorialSteps.length}
               </div>
               <div className="flex gap-3">
@@ -1209,17 +1209,17 @@ function App() {
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
           <div className="card max-w-2xl w-full">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-display font-bold text-accent-50">🔗 Share</h2>
-              <button onClick={() => setShowShareModal(false)} className="text-quaternary-400 hover:text-accent-50 text-2xl">
+              <h2 className="text-2xl font-display font-bold text-primary-900">🔗 Share</h2>
+              <button onClick={() => setShowShareModal(false)} className="text-primary-600 hover:text-primary-900 text-2xl">
                 ✕
               </button>
             </div>
 
-            <p className="text-quaternary-300 mb-4">
+            <p className="text-primary-700 mb-4">
               Share this encrypted text with others using the URL below:
             </p>
 
-            <div className="bg-secondary-900 rounded p-3 mb-4 break-all text-sm text-accent-50">
+            <div className="bg-accent-100 rounded p-3 mb-4 break-all text-sm text-primary-900">
               {shareUrl}
             </div>
 
@@ -1239,7 +1239,7 @@ function App() {
               </button>
             </div>
 
-            <p className="text-xs text-quaternary-500 mt-4">
+            <p className="text-xs text-primary-500 mt-4">
               ⚠️ Note: The URL contains the encrypted text. Only share with trusted recipients.
             </p>
           </div>
@@ -1251,21 +1251,21 @@ function App() {
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
           <div className="card max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-display font-bold text-accent-50">🔓 Brute Force Results</h2>
-              <button onClick={() => setShowBruteForce(false)} className="text-quaternary-400 hover:text-accent-50 text-2xl">
+              <h2 className="text-2xl font-display font-bold text-primary-900">🔓 Brute Force Results</h2>
+              <button onClick={() => setShowBruteForce(false)} className="text-primary-600 hover:text-primary-900 text-2xl">
                 ✕
               </button>
             </div>
 
-            <p className="text-quaternary-300 mb-4">
+            <p className="text-primary-700 mb-4">
               All 25 possible Caesar cipher shifts:
             </p>
 
             <div className="space-y-2 max-h-96 overflow-y-auto">
               {bruteForceResults.map((result) => (
-                <div key={result.shift} className="bg-secondary-900/50 rounded p-3">
+                <div key={result.shift} className="bg-accent-100 rounded p-3">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm font-semibold text-tertiary-400">Shift {result.shift}</span>
+                    <span className="text-sm font-semibold text-primary-700">Shift {result.shift}</span>
                     <button
                       onClick={() => {
                         setOutputText(result.text);
@@ -1276,7 +1276,7 @@ function App() {
                       Use This
                     </button>
                   </div>
-                  <div className="text-sm text-accent-50 break-words">
+                  <div className="text-sm text-primary-900 break-words">
                     {result.text.substring(0, 200)}
                     {result.text.length > 200 && '...'}
                   </div>
@@ -1292,7 +1292,7 @@ function App() {
       )}
 
       {/* Footer */}
-      <footer className="w-full border-t border-tertiary-500/30 bg-primary-800/80 py-3 sm:py-4 text-center text-xs text-quaternary-500 px-4">
+      <footer className="w-full border-t border-primary-200 bg-accent-100 py-3 sm:py-4 text-center text-xs text-primary-600 px-4">
         <p>&copy; {new Date().getFullYear()} Amer Kovacevic All rights reserved.</p>
       </footer>
     </div>
